@@ -1,9 +1,6 @@
 package com.fclass;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.util.Arrays;
 import java.util.List;
@@ -15,11 +12,15 @@ public class WeatherResource {
 
     @Produces(MediaType.APPLICATION_JSON)
    @GET
-    public List<Weather> getWeather(){
+    public List<Weather> getWeatherList(){
         return repo.getWeatherList();
    }
 
-
+   @GET
+   @Path("city/{name-param}")
+    public Weather getWeather(@PathParam("name-param") String name){
+       return repo.getWeather(name);
+    }
    @POST
    @Path("create")
    public Weather createWeather(Weather city){

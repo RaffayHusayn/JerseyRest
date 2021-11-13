@@ -1,7 +1,6 @@
 package com.fclass;
 
 
-
 public class Weather {
     private int temp;
     private String city;
