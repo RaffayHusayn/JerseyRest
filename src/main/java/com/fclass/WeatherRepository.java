@@ -72,11 +72,23 @@ public class WeatherRepository {
 
         return new Weather();//returning an empty weather object to avoid null pointer exception
     }
-//
-//    public Weather createWeather(Weather city){
-//        weatherList.add(city);
-//        System.out.println(weatherList.get(weatherList.size()-1));
-//        return city;
-//    }
+
+    public int createWeather(Weather city){
+
+        try {
+            String query = "Insert into city values(?,?,?)";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setString(1, city.getCity());
+            st.setInt(2, city.getTemp());
+            st.setString(3, city.getPrecipitation());
+
+            int rowAffected = st.executeUpdate();
+            return rowAffected;
+        }catch(Exception e){
+            e.getMessage();
+        }
+        return 0;
+
+    }
 
 }

@@ -21,11 +21,11 @@ public class WeatherResource {
     public Weather getWeather(@PathParam("name-param") String name){
        return repo.getWeather(name);
     }
-//   @POST
-//   @Path("create")
-//   public Weather createWeather(Weather city){
-//
-//        repo.createWeather(city);
-//        return city;
-//   }
+   @POST
+   @Path("create")
+   public int createWeather(Weather city){
+
+         int rowsAffected = repo.createWeather(city);
+         return rowsAffected;
+   }
 }
