@@ -90,5 +90,20 @@ public class WeatherRepository {
         return 0;
 
     }
+    public int deleteWeather(String name){
+
+        try {
+            String query = "Delete from city where name = ?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setString(1, name);
+            int rowAffected = st.executeUpdate();
+//            System.out.println("rows deleted: " + rowAffected);
+            return rowAffected;
+        }catch(Exception e){
+            e.getMessage();
+        }
+        return 0;
+
+    }
 
 }
