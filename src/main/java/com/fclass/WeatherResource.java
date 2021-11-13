@@ -15,12 +15,12 @@ public class WeatherResource {
     public List<Weather> getWeatherList(){
         return repo.getWeatherList();
    }
-//
-//   @GET
-//   @Path("city/{name-param}")
-//    public Weather getWeather(@PathParam("name-param") String name){
-//       return repo.getWeather(name);
-//    }
+
+   @GET
+   @Path("city/{name-param}")
+    public Weather getWeather(@PathParam("name-param") String name){
+       return repo.getWeather(name);
+    }
 //   @POST
 //   @Path("create")
 //   public Weather createWeather(Weather city){

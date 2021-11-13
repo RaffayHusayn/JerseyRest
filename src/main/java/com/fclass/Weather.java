@@ -3,7 +3,7 @@ package com.fclass;
 
 public class Weather {
     private int temp;
-    private String city;
+    private String city ;
     private String precipitation;
 
     public void setCity(String c){
