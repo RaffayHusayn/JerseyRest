@@ -25,4 +25,13 @@ public class Weather {
     public String getPrecipitation(){
         return precipitation;
     }
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "temp=" + temp +
+                ", city='" + city + '\'' +
+                ", precipitation='" + precipitation + '\'' +
+                '}';
+    }
 }

@@ -27,5 +27,10 @@ public class WeatherRepository {
         return weatherList;
     }
 
+    public Weather createWeather(Weather city){
+        weatherList.add(city);
+        System.out.println(weatherList.get(weatherList.size()-1));
+        return city;
+    }
 
 }
