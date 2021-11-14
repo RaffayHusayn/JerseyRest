@@ -105,5 +105,25 @@ public class WeatherRepository {
         return 0;
 
     }
+    public int updateWeather(Weather city){
+
+        try {
+            String query = "update city set temperature = ? , precipitation = ? where name = ? ";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setInt(1, city.getTemp());
+            st.setString(2, city.getPrecipitation());
+            st.setString(3, city.getCity());
+            System.out.println("updated values :::: temperature : " + city.getTemp() + " precipitation : "+ city.getPrecipitation());
+            int rowAffected = st.executeUpdate();
+            System.out.println("rows affected : "+ rowAffected);
+            return rowAffected;
+
+
+        }catch(Exception e){
+            e.getMessage();
+        }
+        return 0;
+
+    }
 
 }

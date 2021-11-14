@@ -37,4 +37,12 @@ public class WeatherResource {
         int rowsAffected = repo.deleteWeather(name);
         return rowsAffected;
    }
+   @PUT
+   @Path("update")
+   public String updateWeather(Weather city){
+
+        int rowsAffected = repo.updateWeather(city);
+        if(rowsAffected == 0 ){ return "No changes made: probably the city that you are trying to update doesn't exist in the DB";}
+        return "values update";
+   }
 }
