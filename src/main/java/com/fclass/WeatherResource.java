@@ -42,7 +42,10 @@ public class WeatherResource {
    public String updateWeather(Weather city){
 
         int rowsAffected = repo.updateWeather(city);
-        if(rowsAffected == 0 ){ return "No changes made: probably the city that you are trying to update doesn't exist in the DB";}
+        if(rowsAffected == 0 ){
+            repo.createWeather(city);
+            return "No changes made: probably the city that you are trying to update doesn't exist in the DB\n A new city datapoint is created instead";
+        }
         return "values update";
    }
 }
